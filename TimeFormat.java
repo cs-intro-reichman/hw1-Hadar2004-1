@@ -4,28 +4,43 @@ public class TimeFormat {
         String input = args[0];
 
        
-        int hourDigits = Integer.parseInt("" + input.charAt(0) + input.charAt(1));
-        int minDigits = Integer.parseInt("" + input.charAt(2) + input.charAt(3));
+        int hours24 = Integer.parseInt("" + input.charAt(0) + input.charAt(1));
+        int minutesString = Integer.parseInt("" + input.charAt(2) + input.charAt(3));
 
-       
-        int newFormatHour = hourDigits % 12;
-        if (newFormatHour == 0) {
-            newFormatHour = 12;
+      
+        int hours12;
+        String suffix;
+
+        
+        if (hours24 == 0) {
+            
+            hours12 = 0;
+            suffix = "AM";
+        } else if (hours24 >= 1 && hours24 <= 11) {
+            
+            hours12 = hours24;
+            suffix = "AM";
+        } else if (hours24 == 12) {
+            
+            hours12 = 12;
+            suffix = "PM";
+        } else { 
+            hours12 = hours24 - 12;
+            suffix = "PM";
         }
 
-       
-        String newFormatMin;
-        if (minDigits < 10) {
-            newFormatMin = "0" + minDigits;
-        } else {
-            newFormatMin = "" + minDigits;
-        }
-
-		
-        if (hourDigits < 12) {
-            System.out.println(newFormatHour + ":" + newFormatMin + " AM");
-        } else {
-            System.out.println(newFormatHour + ":" + newFormatMin + " PM");
-        }
+        
+        
+        
+        System.out.print(hours12);
+        
+        
+        System.out.print(":");
+        
+        System.out.print(minutesString);
+        
+        
+        System.out.print(" ");
+        System.out.println(suffix);
     }
 }
