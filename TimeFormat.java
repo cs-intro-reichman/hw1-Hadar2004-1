@@ -5,7 +5,7 @@ public class TimeFormat {
 
        
         int hours24 = Integer.parseInt("" + input.charAt(0) + input.charAt(1));
-        int minutesString = Integer.parseInt("" + input.charAt(2) + input.charAt(3));
+        int minutesString = Integer.parseInt("" + input.charAt(3) + input.charAt(4));
 
       
         int hours12;
